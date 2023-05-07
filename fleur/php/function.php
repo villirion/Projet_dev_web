@@ -13,27 +13,30 @@ if (!isset($_SESSION['status'])) {
     $_SESSION['status'] = "connexion";
 }
 if (!isset($_SESSION['content'])) {
-    $_SESSION['content'] = "index";
+    $_SESSION['content'] = "index.html";
 }
 
 //lien vers les differente pages
 if (array_key_exists('accueil', $_POST)) {
-    $_SESSION['content'] = "index";
+    $_SESSION['content'] = "index.html";
 }
 if (array_key_exists('contact', $_POST)) {
-    $_SESSION['content'] = "contact";
+    $_SESSION['content'] = "contact.html";
 }
 if (array_key_exists('connexion', $_POST)) {
-    $_SESSION['content'] = "login";
+    $_SESSION['content'] = "login.html";
 }
 if (array_key_exists('recipes', $_POST)) {
-    $_SESSION['content'] = "recipes";
+    $_SESSION['content'] = "recipes.html";
 }
 if (array_key_exists('services', $_POST)) {
-    $_SESSION['content'] = "services";
+    $_SESSION['content'] = "services.html";
 }
 if (array_key_exists('inscription', $_POST)) {
-    $_SESSION['content'] = "inscription";
+    $_SESSION['content'] = "inscription.html";
+}
+if (array_key_exists('calorie_tracking', $_POST)) {
+    $_SESSION['content'] = "calorie_tracking.php";
 }
 
 //deconnexion
@@ -55,7 +58,7 @@ if (array_key_exists('createAccount', $_POST)) {
     }
     if (isset($_POST["Prenom"]) and isset($_POST["Nom"]) and isset($_POST["Email"]) and $PwdCorrect) {
         @$Email=$_POST["Email"];
-        $sel=$pdo->prepare("select id from utilisateurs where email=? limit 1");
+        $sel=$pdo->prepare("select 1 from utilisateurs where email=?");
         $sel->execute(array($Email));
         $tab=$sel->fetchAll();
         if(count($tab)>0)
@@ -63,9 +66,12 @@ if (array_key_exists('createAccount', $_POST)) {
         else{
             $ins=$pdo->prepare("insert into utilisateurs(email,prenom,nom,pass) values(?,?,?,?)");
             if($ins->execute(array($_POST["Email"],$_POST["Prenom"],$_POST["Nom"],$_POST["Mdp"])))
+            $sel=$pdo->prepare("select id from utilisateurs where email=? limit 1");
+            $sel->execute(array($Email));
+            $tab=$sel->fetchAll();
             $_SESSION['id'] = $tab[0]["id"];
             $_SESSION['status'] = "deconnexion";
-            $_SESSION['content'] = "index";
+            $_SESSION['content'] = "index.html";
         }
     }
 }
@@ -81,7 +87,7 @@ if (array_key_exists('login', $_POST)) {
         if(count($tab)>0){
             $_SESSION['id'] = $tab[0]["id"];
             $_SESSION['status'] = "deconnexion";
-            $_SESSION['content'] = "index";
+            $_SESSION['content'] = "index.html";
         }
         else{
             echo "Mauvais login ou mot de passe!";
