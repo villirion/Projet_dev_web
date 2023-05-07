@@ -1,0 +1,48 @@
+.wrapper-recipes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    background-color: #ffb32f48;
+}
+
+.recipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem; /* Espacement entre les éléments */
+    margin-top: 2rem;
+}
+
+
+.recipe {
+    flex: 1 0 calc(33% - 2rem); /* 33% pour avoir 3 éléments par ligne, soustraire 2rem pour tenir compte de l'espacement */
+    max-width: calc(33% - 2rem); /* Largeur maximale pour s'adapter aux petits écrans */
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.recipe img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.recipe h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.recipe p {
+    margin-bottom: 1rem;
+}
+
+.recipe-details {
+    text-align: left;
+}
