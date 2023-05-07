@@ -1,0 +1,134 @@
+
+        <table>
+            <tr>
+                <td>image</td> <td>ref</td> <td>description</td> <td>prix</td> <td></td> <td class = 'stock'>stock</td>
+            </tr>
+            <tr>
+                <td><img src=https://www.willemsefrance.fr/Files/126284/Img/02/005075-Massif-de-50-plantes-vivaces-assorties-Superficie-environ_1x800.jpg /></td> <td>m01</td> 
+                <td>Massif de 50 plantes vivaces assorties </td> <td>59.99€</td> 
+                <td>
+                <form action= "" method= "post">
+                    <button type= "button" onclick= "minus(this);" id= "m01">-</button>
+                    <input type= "number" name= "m01" value= "0" min= "0" max= "100">
+                    <button type= "button" onclick= "plus(this);" id= "m01">+</button>
+                    <br><input type= "submit" name= "ajoutPanier" value= "Ajouter au panier" />
+                </form>
+                </td>
+                <td class =  "stock ">100</td>
+            </tr>
+            <tr>
+                <td><img src=https://www.willemsefrance.fr/Files/126284/Img/20/005128-5-Lupins-Russell-en-melange-Extra_1x800.jpg /></td> <td>m02</td> 
+                <td>5 Lupins Russell en mélange </td> <td>3.49€</td> 
+                <td>
+                <form action= "" method= "post">
+                    <button type= "button" onclick= "minus(this);" id= "m02">-</button>
+                    <input type= "number" name= "m02" value= "0" min= "0" max= "100">
+                    <button type= "button" onclick= "plus(this);" id= "m02">+</button>
+                    <br><input type= "submit" name= "ajoutPanier" value= "Ajouter au panier" />
+                </form>
+                </td>
+                <td class =  "stock ">100</td>
+            </tr>
+            <tr>
+                <td><img src=https://www.willemsefrance.fr/Files/126284/Img/11/005843-5-Ancolies-Mac-Kana-en-melange_1x800.jpg /></td> <td>m03</td> 
+                <td>5 Ancolies Mac Kana en mélange </td> <td>3.49€</td> 
+                <td>
+                <form action= "" method= "post">
+                    <button type= "button" onclick= "minus(this);" id= "m03">-</button>
+                    <input type= "number" name= "m03" value= "0" min= "0" max= "100">
+                    <button type= "button" onclick= "plus(this);" id= "m03">+</button>
+                    <br><input type= "submit" name= "ajoutPanier" value= "Ajouter au panier" />
+                </form>
+                </td>
+                <td class =  "stock ">100</td>
+            </tr>
+            <tr>
+                <td><img src=https://www.willemsefrance.fr/Files/126284/Img/03/005307-5-Delphiniums-Ciel-Bleu_1x800.jpg /></td> <td>m04</td> 
+                <td>5 Delphiniums Ciel Bleu </td> <td>15.99€</td> 
+                <td>
+                <form action= "" method= "post">
+                    <button type= "button" onclick= "minus(this);" id= "m04">-</button>
+                    <input type= "number" name= "m04" value= "0" min= "0" max= "100">
+                    <button type= "button" onclick= "plus(this);" id= "m04">+</button>
+                    <br><input type= "submit" name= "ajoutPanier" value= "Ajouter au panier" />
+                </form>
+                </td>
+                <td class =  "stock ">100</td>
+            </tr>
+            <tr>
+                <td><img src=https://www.willemsefrance.fr/Files/126284/Img/21/005887-3-Oeils-de-jeune-fille_1x800.jpg /></td> <td>m05</td> 
+                <td>3 Oeils de jeune fille </td> <td>10.99€</td> 
+                <td>
+                <form action= "" method= "post">
+                    <button type= "button" onclick= "minus(this);" id= "m05">-</button>
+                    <input type= "number" name= "m05" value= "0" min= "0" max= "100">
+                    <button type= "button" onclick= "plus(this);" id= "m05">+</button>
+                    <br><input type= "submit" name= "ajoutPanier" value= "Ajouter au panier" />
+                </form>
+                </td>
+                <td class =  "stock ">100</td>
+            </tr>
+            <tr>
+                <td><img src=https://www.willemsefrance.fr/Files/126284/Img/18/020030-2-Molenes-en-melange_1x800.jpg /></td> <td>m06</td> 
+                <td>2 Molenes en melange </td> <td>9.99€</td> 
+                <td>
+                <form action= "" method= "post">
+                    <button type= "button" onclick= "minus(this);" id= "m06">-</button>
+                    <input type= "number" name= "m06" value= "0" min= "0" max= "100">
+                    <button type= "button" onclick= "plus(this);" id= "m06">+</button>
+                    <br><input type= "submit" name= "ajoutPanier" value= "Ajouter au panier" />
+                </form>
+                </td>
+                <td class =  "stock ">100</td>
+            </tr>
+        </table> 
+        <input type='button' name='stock' value='Afficher stock' onclick='toggleStock();' />
+        <script> 
+            function toggleStock() { 
+                let stock = document.getElementsByClassName('stock');
+                let i=stock.length; 
+                if(stock[0].style.visibility == 'hidden'){
+                    while(i--){
+                        stock[i].style.visibility = 'visible'
+                    }
+                } else {
+                    while(i--){
+                        stock[i].style.visibility = 'hidden'
+                    }
+                }
+            } 
+            toggleStock();
+            function plus(e){
+                fieldName = e.getAttribute('id');
+                let allInput = document.getElementsByTagName('input');
+                let i=allInput.length; 
+                while(i--){
+                    if (allInput[i].getAttribute('name') == fieldName){
+                        break;
+                    }
+                }
+                let currentVal = allInput[i].value;
+                let max =  allInput[i].getAttribute('max');
+                currentVal++;
+                if(currentVal < max) {
+                    allInput[i].value++;
+                }
+            };
+
+            function minus(e){
+                fieldName = e.getAttribute('id');
+                let allInput = document.getElementsByTagName('input');
+                let i=allInput.length; 
+                while(i--){
+                    if (allInput[i].getAttribute('name') == fieldName){
+                        break;
+                    }
+                }
+                let currentVal = allInput[i].value;
+                let min =  allInput[i].getAttribute('min');
+                if (currentVal > min) {
+                    allInput[i].value--;
+                }
+            };
+
+        </script>
