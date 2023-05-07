@@ -29,6 +29,10 @@ if (array_key_exists('register', $_POST)) {
 if (array_key_exists('admin', $_POST)) {
     $_SESSION['content'] = "admin";
 }
+if (array_key_exists('join', $_POST)) {
+    $_SESSION['content'] = "join";
+}
+
 //deconnexion
 if (array_key_exists('logOf', $_POST)) {
     $_SESSION['status'] = "deconnecter";
