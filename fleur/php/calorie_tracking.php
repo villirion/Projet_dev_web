@@ -29,8 +29,9 @@ $options = array(
 );
 
 // Construire le graphique
-echo "<div class='graph-container'>
-        <canvas id='calories-graph' width='1333' height='250'></canvas>
+echo "<h1 class='graph-title'>Suivi de votre consommation en calories</h1>
+      <div class='graph-container'>
+        <canvas id='calories-graph'></canvas>
       </div>
       <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
       <script>
@@ -51,3 +52,4 @@ echo "<div class='graph-container'>
         });
       </script>";
 ?>
+
