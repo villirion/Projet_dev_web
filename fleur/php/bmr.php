@@ -83,7 +83,7 @@ if (array_key_exists('BMR', $_POST)) {
         else {
             $BMR = 9.247 * $_POST["poid"]  +  3.098 * $_POST["taille"] - 4.330 * $_POST["age"] + 447.593;
         }
-        echo "<p>votre BMR Basal Metabolic Rate (métabolisme de base) est " . $BMR . "</p>";
+        echo "<div class='bmr'><p>votre BMR Basal Metabolic Rate (métabolisme de base) est " . $BMR . "</p></div>";
     }
 }
 

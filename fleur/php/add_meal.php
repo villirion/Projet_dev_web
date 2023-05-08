@@ -1,4 +1,4 @@
-<div class="card">
+<div class="addMeal">
   <form
     action=""
     method="post"
@@ -28,6 +28,8 @@
   </form>
 </div>
 
+
+
 <script>
   function validateForm() {
     let plat = document.forms["mailForm"]["plat"].value.replace(/\s+/g, "");
@@ -54,14 +56,14 @@ $sel=$pdo->prepare("SELECT food_date, food_calories, food_name FROM repas WHERE 
 $sel->execute(array($_SESSION["id"]));
 $tab=$sel->fetchAll();
 if(count($tab)>0){
-    echo "<ul>";
+    echo "<div class='historique'><h1>Historique</h1><ul>";
     foreach ($tab as $row) {
         echo "<li>" . $row['food_name'] . " " .  $row['food_calories'] . " calorie le " .  $row['food_date'] . "</li>";
     }
-    echo "</ul>";
+    echo "</ul></div>";
 }
 else{
-    echo "<p>Aucun repas enregistré</p>";
+    echo "<div='historique'><p>Aucun repas enregistré</p></div>";
 }
 
 ?>
