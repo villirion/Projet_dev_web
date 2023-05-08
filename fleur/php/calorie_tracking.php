@@ -29,23 +29,25 @@ $options = array(
 );
 
 // Construire le graphique
-echo "<canvas id='calories-graph' width='1333' height='250'></canvas>
-  <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
-  <script>
-    var ctx = document.getElementById('calories-graph').getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: " . json_encode($dates) . ",
-        datasets: [{
-          label: 'Calories consommées',
-          data: " . json_encode($calories) . ",
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: " . json_encode($options) . "
-    });
-  </script>";
+echo "<div class='graph-container'>
+        <canvas id='calories-graph' width='1333' height='250'></canvas>
+      </div>
+      <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+      <script>
+        var ctx = document.getElementById('calories-graph').getContext('2d');
+        var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: " . json_encode($dates) . ",
+            datasets: [{
+              label: 'Calories consommées',
+              data: " . json_encode($calories) . ",
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: " . json_encode($options) . "
+        });
+      </script>";
 ?>
