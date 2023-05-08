@@ -66,7 +66,21 @@ if (array_key_exists('BMR', $_POST)) {
     /><br />
     <input type="submit" name="patchBMR" value="Changer mon BMR" />
   </form>
-
+  <?php
+//patch BMR db
+if (array_key_exists('patchBMR', $_POST)) {
+    if ($_SESSION['status'] == "connexion" ) {
+        echo "<div class='bmr'><p>Vous devez etre connecter pour changer votre BMR</p></div>";
+    }
+    else {
+        if (isset($_POST["BMR"])) {
+            $ins=$pdo->prepare("UPDATE utilisateurs SET BMR=? where utilisateurs.id=?");
+            if($ins->execute(array($_POST["BMR"],$_SESSION["id"])));
+            $_SESSION['BMR'] = $_POST["BMR"];
+        } 
+    }
+}
+?>
 </div>
 
 
@@ -89,18 +103,3 @@ if (array_key_exists('BMR', $_POST)) {
   }
 </script>
 
-<?php
-//patch BMR db
-if (array_key_exists('patchBMR', $_POST)) {
-    if ($_SESSION['status'] == "connexion" ) {
-        echo "<div class='bmr'><p>Vous devez etre connecter pour changer votre BMR</p></div>";
-    }
-    else {
-        if (isset($_POST["BMR"])) {
-            $ins=$pdo->prepare("UPDATE utilisateurs SET BMR=? where utilisateurs.id=?");
-            if($ins->execute(array($_POST["BMR"],$_SESSION["id"])));
-            $_SESSION['BMR'] = $_POST["BMR"];
-        }
-    }
-}
-?>
