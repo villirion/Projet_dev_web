@@ -180,13 +180,6 @@ main {
         padding-left: 1.5em;
     }}
 
-body{
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
 .content {
     display: flex;
     height: 1000%;
@@ -223,7 +216,6 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
-
 
 table{
     width: 100%;
