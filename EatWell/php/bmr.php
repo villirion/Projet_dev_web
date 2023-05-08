@@ -32,6 +32,21 @@
     </select><br />
     <input type="submit" name="BMR" value="Calcul BMR" />
   </form>
+  <?php
+//function:
+//calcul BMR
+if (array_key_exists('BMR', $_POST)) {
+    if (isset($_POST["age"]) and isset($_POST["poid"]) and isset($_POST["sexe"]) and isset($_POST["taille"])) {
+        if ($_POST["sexe"] == "homme") {
+            $BMR = 13.397 * $_POST["poid"]  + 4.799 * $_POST["taille"] - 5.677 * $_POST["age"] + 88.362;
+        }
+        else {
+            $BMR = 9.247 * $_POST["poid"]  +  3.098 * $_POST["taille"] - 4.330 * $_POST["age"] + 447.593;
+        }
+        echo "<div class='bmr'><p>Votre BMR (Basal Metabolic Rate) est " . $BMR . "</p></div>";
+    }
+}
+?>
 </div>
 
 <div class="card">
@@ -51,6 +66,7 @@
     /><br />
     <input type="submit" name="patchBMR" value="Changer mon BMR" />
   </form>
+
 </div>
 
 
@@ -72,25 +88,12 @@
     }
   }
 </script>
-<?php
-//function:
-//calcul BMR
-if (array_key_exists('BMR', $_POST)) {
-    if (isset($_POST["age"]) and isset($_POST["poid"]) and isset($_POST["sexe"]) and isset($_POST["taille"])) {
-        if ($_POST["sexe"] == "homme") {
-            $BMR = 13.397 * $_POST["poid"]  + 4.799 * $_POST["taille"] - 5.677 * $_POST["age"] + 88.362;
-        }
-        else {
-            $BMR = 9.247 * $_POST["poid"]  +  3.098 * $_POST["taille"] - 4.330 * $_POST["age"] + 447.593;
-        }
-        echo "<p>votre BMR Basal Metabolic Rate (métabolisme de base) est " . $BMR . "</p>";
-    }
-}
 
+<?php
 //patch BMR db
 if (array_key_exists('patchBMR', $_POST)) {
     if ($_SESSION['status'] == "connexion" ) {
-        echo "<p>Vous devais etre connecter pour changer votre BMR</p>";
+        echo "<div class='bmr'><p>Vous devez etre connecter pour changer votre BMR</p></div>";
     }
     else {
         if (isset($_POST["BMR"])) {
