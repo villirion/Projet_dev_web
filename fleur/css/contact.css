@@ -5,7 +5,40 @@ body {
     padding: 0;
 }
 
-.card {
+.addMeal {
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff; 
+    border-radius: 5px;
+    animation: fadeIn 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff; 
+    border-radius: 5px;
+    animation: fadeIn 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    width:107%;
+}
+
+.historique{
     width: 500px;
     margin: 50px auto;
     padding: 20px;
@@ -13,11 +46,14 @@ body {
      background-color: #fff; 
     border-radius: 5px;
     animation: fadeIn 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
+ul {
+    list-style-type: none;
 }
 
 input[type="text"],
@@ -33,7 +69,7 @@ input[type="date"] {
 }
 
 input[type="submit"] {
-    width: 100%;
+    width: 107%;
     padding: 10px;
     background-color: #ffb32f;
     border: none;
@@ -42,6 +78,10 @@ input[type="submit"] {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.connexion-submit{
+   margin-left:5px;
 }
 
 input[type="submit"]:hover {
