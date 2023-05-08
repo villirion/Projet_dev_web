@@ -12,7 +12,8 @@
 .recipes {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-start; /* Ajout de cette ligne */
     gap: 2rem; /* Espacement entre les éléments */
     margin-top: 2rem;
 }
@@ -26,6 +27,7 @@
     padding: 1rem;
     margin-bottom: 2rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ajout de cette ligne */
 }
 .recipe img {
     width: 100%;
