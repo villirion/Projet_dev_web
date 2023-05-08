@@ -102,4 +102,3 @@ if (array_key_exists('patchBMR', $_POST)) {
     }
   }
 </script>
-

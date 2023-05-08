@@ -3,14 +3,6 @@ body {
     background-color: #ffffff;
 }
   
-.graph-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 50px;
-    margin-bottom: 20px;
-}
-  
 .graph-container {
     display: flex;
     flex-direction: column;
