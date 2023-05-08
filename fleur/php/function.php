@@ -36,7 +36,20 @@ if (array_key_exists('inscription', $_POST)) {
     $_SESSION['content'] = "inscription.html";
 }
 if (array_key_exists('calorie_tracking', $_POST)) {
-    $_SESSION['content'] = "calorie_tracking.php";
+    if ($_SESSION['status'] == "connexion" ) {
+        $_SESSION['content'] = "login.html";
+    }
+    else{
+        $_SESSION['content'] = "calorie_tracking.php";
+    }
+}
+if (array_key_exists('add_meal', $_POST)) {
+    if ($_SESSION['status'] == "connexion" ) {
+        $_SESSION['content'] = "login.html";
+    }
+    else{
+        $_SESSION['content'] = "add_meal.php";
+    }
 }
 
 //deconnexion
