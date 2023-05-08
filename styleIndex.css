@@ -36,7 +36,7 @@
 }
 .image-container {
     margin-top: 2rem;
-    text-align: center;
+    margin-bottom: -0.3rem;
 }
 
 .image-container img {
