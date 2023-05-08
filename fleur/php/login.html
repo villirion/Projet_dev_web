@@ -1,5 +1,10 @@
 <div class="card">
-    <form action="" method="post">
+    <form 
+        action="" 
+        method="post"
+        name="loginForm"
+        onsubmit="return validateForm()"
+    >
         <h1>Connexion</h1>
         <input
             type="email"
@@ -16,3 +21,13 @@
         <input type="submit" name="login" value="Connexion" />
     </form>
 </div>
+<script>
+    function validateForm() {
+      let Email = document.forms["loginForm"]["Email"].value.replace(/\s+/g, "");
+      let Mdp = document.forms["loginForm"]["Mdp"].value.replace(/\s+/g, "");
+      if (Email == "" || Mdp == "") {
+        alert("Everything must be filled out");
+        return false;
+      }
+    }
+  </script>

@@ -1,6 +1,5 @@
 <?php
-$_SESSION["id"] = 1;
-$sel=$pdo->prepare("select date, food_calorie from repas where user_id=?");
+$sel=$pdo->prepare("SELECT food_date, SUM(food_calories) AS food_calories FROM repas WHERE user_id=? GROUP BY food_date ORDER BY food_date");
 $sel->execute(array($_SESSION["id"]));
 $tab=$sel->fetchAll();
 
@@ -8,10 +7,13 @@ $dates = array();
 $calories = array();
 if (!empty($tab)) {
   foreach ($tab as $row) {
-    $dates[] = $row['date'];
-    $calories[] = $row['food_calorie'];
+    $dates[] = $row['food_date'];
+    $calories[] = $row['food_calories'];
   }
 }
+
+//ligne BMR
+$redLine = array_fill(0, count($dates), $_SESSION["BMR"]);
 
 // Définir les options du graphique
 $options = array(
@@ -46,10 +48,16 @@ echo "<h1 class='graph-title'>Suivi de votre consommation en calories</h1>
               backgroundColor: 'rgba(54, 162, 235, 0.2)',
               borderColor: 'rgba(54, 162, 235, 1)',
               borderWidth: 1
-            }]
+            }, {
+                label: 'Limite de calories',
+                type: 'line',
+                data: " . json_encode($redLine) . ",
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+              }]
           },
           options: " . json_encode($options) . "
         });
       </script>";
 ?>
-

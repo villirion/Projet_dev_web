@@ -35,6 +35,9 @@ if (array_key_exists('services', $_POST)) {
 if (array_key_exists('inscription', $_POST)) {
     $_SESSION['content'] = "inscription.html";
 }
+if (array_key_exists('BMR', $_POST)) {
+    $_SESSION['content'] = "BMR.php";
+}
 if (array_key_exists('calorie_tracking', $_POST)) {
     if ($_SESSION['status'] == "connexion" ) {
         $_SESSION['content'] = "login.html";
@@ -69,7 +72,7 @@ if (array_key_exists('createAccount', $_POST)) {
             $PwdCorrect = False;
         }
     }
-    if (isset($_POST["Prenom"]) and isset($_POST["Nom"]) and isset($_POST["Email"]) and $PwdCorrect) {
+    if (isset($_POST["Prenom"]) and isset($_POST["Nom"]) and isset($_POST["Email"]) and isset($_POST["BMR"]) and $PwdCorrect) {
         @$Email=$_POST["Email"];
         $sel=$pdo->prepare("select 1 from utilisateurs where email=?");
         $sel->execute(array($Email));
@@ -77,12 +80,13 @@ if (array_key_exists('createAccount', $_POST)) {
         if(count($tab)>0)
             echo "Email existe déjà!";
         else{
-            $ins=$pdo->prepare("insert into utilisateurs(email,prenom,nom,pass) values(?,?,?,?)");
-            if($ins->execute(array($_POST["Email"],$_POST["Prenom"],$_POST["Nom"],$_POST["Mdp"])))
-            $sel=$pdo->prepare("select id from utilisateurs where email=? limit 1");
+            $ins=$pdo->prepare("insert into utilisateurs(email,prenom,nom,pass,BMR) values(?,?,?,?,?)");
+            if($ins->execute(array($_POST["Email"],$_POST["Prenom"],$_POST["Nom"],$_POST["Mdp"],$_POST["BMR"])))
+            $sel=$pdo->prepare("select id, BMR from utilisateurs where email=? limit 1");
             $sel->execute(array($Email));
             $tab=$sel->fetchAll();
             $_SESSION['id'] = $tab[0]["id"];
+            $_SESSION['BMR'] = $tab[0]["BMR"];
             $_SESSION['status'] = "deconnexion";
             $_SESSION['content'] = "index.html";
         }
@@ -99,6 +103,7 @@ if (array_key_exists('login', $_POST)) {
         $tab=$sel->fetchAll();
         if(count($tab)>0){
             $_SESSION['id'] = $tab[0]["id"];
+            $_SESSION['BMR'] = $tab[0]["BMR"];
             $_SESSION['status'] = "deconnexion";
             $_SESSION['content'] = "index.html";
         }

@@ -41,20 +41,22 @@
 </script>
 <?php
 //function:
-//creation de compte
+//ajout plat
 if (array_key_exists('addMeal', $_POST)) {
-    $ins=$pdo->prepare("insert into repas(food_name,food_calories,date,user_id) values(?,?,?,?)");
-    if($ins->execute(array($_POST["plat"],$_POST["calorie"],$_POST["date"],$_SESSION["id"])));
+    if (isset($_POST["plat"]) and isset($_POST["calorie"]) and isset($_POST["date"])) {
+        $ins=$pdo->prepare("insert into repas(food_name,food_calories,food_date,user_id) values(?,?,?,?)");
+        if($ins->execute(array($_POST["plat"],$_POST["calorie"],$_POST["date"],$_SESSION["id"])));
+    }
 }
 
-// Historiqque
-$sel=$pdo->prepare("select * from repas where user_id=?");
+//Historique
+$sel=$pdo->prepare("SELECT food_date, food_calories, food_name FROM repas WHERE user_id=? ORDER BY food_date");
 $sel->execute(array($_SESSION["id"]));
 $tab=$sel->fetchAll();
 if(count($tab)>0){
     echo "<ul>";
     foreach ($tab as $row) {
-        echo "<li>" . $row['food_name'] . " " .  $row['food_calories'] . "calorie le " .  $row['date'] . "</li>";
+        echo "<li>" . $row['food_name'] . " " .  $row['food_calories'] . " calorie le " .  $row['food_date'] . "</li>";
     }
     echo "</ul>";
 }

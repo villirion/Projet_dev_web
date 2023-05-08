@@ -1,5 +1,10 @@
 <div class="card">
-  <form action="" method="post">
+  <form 
+    action="" 
+    method="post"
+    name="inscriptionForm"
+    onsubmit="return validateForm()"
+  >
     <h1>Créer son compte</h1>
     <input
       type="email"
@@ -31,6 +36,27 @@
       placeholder="Entrez votre Prenom"
       required
     /><br />
+    <input
+      type="number"
+      name="BMR"
+      step="any"
+      placeholder="Entrez votre BMR"
+      required
+    /><br />
     <input type="submit" name="createAccount" value="Créer son compte" />
   </form>
 </div>
+<script>
+  function validateForm() {
+    let Email = document.forms["inscriptionForm"]["Email"].value.replace(/\s+/g, "");
+    let Mdp = document.forms["inscriptionForm"]["Mdp"].value.replace(/\s+/g, "");
+    let MdpConf = document.forms["inscriptionForm"]["MdpConf"].value.replace(/\s+/g, "");
+    let Nom = document.forms["inscriptionForm"]["Nom"].value.replace(/\s+/g, "");
+    let Prenom = document.forms["inscriptionForm"]["Prenom"].value.replace(/\s+/g, "");
+    let BMR = document.forms["inscriptionForm"]["BMR"].value.replace(/\s+/g, "");
+    if (Email == "" || Mdp == "" || MdpConf == "" || Nom == "" || Prenom == "" || BMR == "") {
+      alert("Everything must be filled out");
+      return false;
+    }
+  }
+</script>
