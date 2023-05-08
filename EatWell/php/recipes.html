@@ -38,5 +38,63 @@
                 Au moment de servir, garnir de graines de sésame supplémentaires.
             </div>
         </div>
+        <div class="recipe" onclick="showRecipe('recipe-4')">
+            <img src="https://naofood.coopcycle.org/media/cache/product_thumbnail/61/d1/61d1aa35d81cd.jpeg" alt="Raviolis Chinois">
+            <h2>Raviolis Chinois</h2>
+            <p>Calories : 550</p>
+            <div class="recipe-details" id="recipe-4" style="display:none;">
+                Faites bouillir de l'eau dans une casserole.
+                Versez la farine dans un saladier. Ajoutez une pincée de sel.
+                Lorsque l'eau bout, versez petit à petit et en plusieurs fois en mélangeant.
+                Une fois que la pâte commence à former de gros grumeaux, arrêtez de verser l'eau et pétrissez à la main.
+                Une fois que la pâte forme une boule et qu'il ne reste pas de farine collée aux parois du saladier, filmez et laissez reposer à température ambiante au moins 30 minutes.
+                Prenez la moitié de la pâte et roulez-là jusqu'à former un bâton de 3 cm de diamètre environ.
+                A l'aide d'un couteau, coupez un premier bout de pâte. Faites roulez d'un demi quart de tour votre rouleau de pâte et coupez un nouveau bout de pâte. Répétez l'opération jusqu'à épuisement du rouleau de pâte. Cette technique vous permettra de ne pas écraser la pâte.
+                Saupoudrez de farine vos bouts de pâte. Prenez un morceau, faites-en une petite boule et venez l'écraser avec le plat de la main tout en tournant légèrement. Vous obtiendrez une galette bien ronde. Répétez l'opération avec tous les bouts de pâte.
+                Prenez une galette de pâte et avec un rouleau à pâtisserie, venez écraser juste un bord. Tournez légèrement votre galette et écrasez de nouveau un bord, ainsi de suite jusqu'à avoir aplatit tout le contour. Cela vous donnera des bords d'1 mm d'épaisseur et un cœur un peu plus épais.
+                Répétez l'opération.
+                Garnissez vos raviolis d'une grosse cuillère à café de farce. Deux techniques de pliage s'offrent à vous :
+                Technique plus difficile 
+                Rabattez deux bords opposés et pincez bien pour qu'ils se collent.
+                Rabattez en petits plis le reste de la pâte tout en pinçant.
+                Technique simplifiée :
+                Rabattez deux bords opposés et pincez bien pour qu'ils se collent. Poussez les deux autre extrémités vers le centre. Vous obtiendrez quatre coins. Soudez-les en pressant bien.
+                Rabattez deux des bords et vous obtenez votre ravioli.
+                Vous pouvez maintenant cuire vos raviolis à la vapeur, à la poêle ou dans de l'eau bouillante.
+            </div>
+        </div>
+        <div class="recipe" onclick="showRecipe('recipe-5')">
+            <img src="https://bigoven-res.cloudinary.com/image/upload/t_recipe-256/how-to-make-chapati-roti-2585911.jpg" alt="Roti à l'indienne">
+            <h2>Roti à l'indienne</h2>
+            <p>Calories : 420</p>
+            <div class="recipe-details" id="recipe-5" style="display:none;">
+                Utiliser un récipient pour faire la pâte (un « paraat » si possible). Y mettre la farine complète, la farine de blé et le sel et bien mélanger. Ajouter de l’eau et mélanger jusqu’à obtenir une pâte. Travailler la pâte avec le poing (technique indienne traditionnelle). Ajouter un peu d’eau. La pâte ne doit pas être trop dure sinon les chapatis seront durs.
+                Séparer la pâte et faire des petites boules. Etaler au rouleau chaque boule de manière à obtenir une sorte de crêpe.
+                Faire chauffer une plaque ou une poêle sur le gaz pour la cuisson. Déposer le chapati dessus. Retourner le chapati quand il y a des petits gonflements à la surface. Baisser le feu. Quand l’autre côté et bien cuit, mettre le chapati directement sur la flamme (gonflement). Le tourner plusieurs fois de manière à ne pas le brûler. Retirer le chapati.
+                Badigeonner avec du ghee ou du beurre. Les chapatis sont prêts à accompagner vos plats indiens. Bon appétit !
+            </div>
+        </div>
+        <div class="recipe" onclick="showRecipe('recipe-6')">
+            <img src="https://ipcdn.freshop.com/resize?url=https://images.freshop.com/2357646812887647203/b7f0b8c7b3cf9811007d61ccfb785cd1_large.png&width=256&type=webp&quality=80" alt="Bouchée de Tofu à la Buffalo">
+            <h2>Bouchées de Tofu à la Buffalo</h2>
+            <p>Calories : 610</p>
+            <div class="recipe-details" id="recipe-6" style="display:none;">
+                Placer les algues dans un bol de taille moyenne et couvrir d’eau. Laisser reposer 10 minutes jusqu’à réhydratation.
+                Pendant que les algues trempent, préparez la vinaigrette : dans un saladier de taille moyenne, fouettez ensemble tous les ingrédients. Mettre de côté.
+                Lorsque les algues sont réhydratées, filtrez les algues dans une passoire et rincez abondamment. Assurez-vous d’enlever le plus d’humidité possible, en pressant les algues si nécessaire.
+                Ajouter les algues et les graines de sésame au saladier de vinaigrette et bien mélanger
+                Couvrir et mettre au frigo pendant 30 minutes à 1 heure.
+                Au moment de servir, garnir de graines de sésame supplémentaires.
+            </div>
+        </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+<script>
+    function showRecipe(recipeId) {
+        var recipeDetails = document.getElementById(recipeId);
+        recipeDetails.style.display = recipeDetails.style.display === 'none' ? 'block' : 'none';
+    }
+</script>
