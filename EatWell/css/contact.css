@@ -5,7 +5,47 @@ body {
     padding: 0;
 }
 
-.card {
+.card{
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff; 
+    border-radius: 5px;
+    animation: fadeIn 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    width:107%;
+}
+
+.bmr {
+    text-align: center;
+    margin-top: 30px;
+}
+.addMeal {
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff; 
+    border-radius: 5px;
+    animation: fadeIn 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.historique{
     width: 500px;
     margin: 50px auto;
     padding: 20px;
@@ -13,12 +53,14 @@ body {
      background-color: #fff; 
     border-radius: 5px;
     animation: fadeIn 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    width:107%;
+ul {
+    list-style-type: none;
 }
 
 input[type="text"],
@@ -45,6 +87,13 @@ input[type="submit"] {
     transition: background-color 0.3s;
 }
 
+select{
+    border: 1px solid #ccc;
+    color: black;
+    width: 112%;
+    padding:10px;
+    margin-bottom: 10px;
+}
 .connexion-submit{
    margin-left:5px;
 }
